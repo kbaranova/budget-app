@@ -1,0 +1,174 @@
+@use "foundation" as *;
+
+.tableBase {
+  box-shadow: 0px 0px 2px #888888;
+  width: 100%;
+  overflow: auto;
+}
+
+.tableIncomeWrapper {
+  @extend .tableBase;
+  background-color: rgba(255, 255, 255, 0.61);
+  padding: 10px;
+
+  table {
+    width: 100%;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 4px 5px;
+  }
+  .tableLabel {
+    font-size: 0.9vw;
+  }
+
+  .tableButton {
+    text-align: right;
+  }
+  .tableValue {
+    text-align: right;
+    font-size: 1vw;
+  }
+}
+
+.tableExpenseWrapper {
+  @extend .tableBase;
+  background-color: #fff;
+
+  table {
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  thead {
+    font-size: 0.8vw;
+    background-color: $green;
+    & th {
+      padding: 10px;
+    }
+  }
+
+  tr {
+    border-top: 1px solid #e2e2e2;
+  }
+
+  .tableLabel {
+    font-size: 0.9vw;
+    padding: 10px;
+  }
+
+  .tableNumber {
+    font-size: 1vw;
+    padding: 10px;
+  }
+
+  .tableDate {
+    font-size: 0.8vw;
+    font-style: italic;
+    font-weight: 900;
+    padding: 10px;
+  }
+
+  .tableCategory {
+    font-size: 0.9vw;
+    font-weight: 500;
+    padding: 10px;
+  }
+
+  .tableButton {
+    text-align: center;
+  }
+}
+
+.modalContainer {
+  table {
+    @extend .tableBase;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) and (max-height: 570px) {
+  .tableIncomeWrapper {
+    .tableLabel {
+      font-size: 1.1vw;
+    }
+    .tableValue {
+      font-size: 1.2vw;
+    }
+  }
+  .tableExpenseWrapper {
+    .tableLabel {
+      font-size: 1.1vw;
+    }
+
+    .tableNumber {
+      font-size: 1.2vw;
+    }
+
+    .tableDate {
+      font-size: 1vw;
+    }
+
+    .tableCategory {
+      font-size: 1.1vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .tableIncomeWrapper {
+    .tableLabel {
+      font-size: 1.1vw;
+    }
+    .tableValue {
+      font-size: 1.2vw;
+    }
+  }
+  .tableExpenseWrapper {
+    .tableLabel {
+      font-size: 1.1vw;
+    }
+
+    .tableNumber {
+      font-size: 1.2vw;
+    }
+
+    .tableDate {
+      font-size: 1vw;
+    }
+
+    .tableCategory {
+      font-size: 1.1vw;
+    }
+    thead {
+      font-size: 1.5vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .tableIncomeWrapper {
+    .tableLabel {
+      font-size: 2.1vw;
+    }
+    .tableValue {
+      font-size: 2.2vw;
+    }
+  }
+  .tableExpenseWrapper {
+    .tableLabel {
+      font-size: 2.1vw;
+    }
+
+    .tableNumber {
+      font-size: 2.2vw;
+    }
+
+    .tableDate {
+      font-size: 2vw;
+    }
+
+    .tableCategory {
+      font-size: 2.1vw;
+    }
+  }
+}

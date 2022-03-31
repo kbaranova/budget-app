@@ -1,0 +1,506 @@
+@use "inputs";
+@use "tables";
+@use "foundation" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,300&display=swap");
+
+.flex {
+  display: flex;
+}
+
+.contentWrapper {
+  height: 100vh;
+  position: relative;
+  padding: 0px 20px 20px 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+  grid-template-areas:
+    "header header header header header header header"
+    "income income overview overview overview category category"
+    "income income overview overview overview category category"
+    "income income overview overview overview category category"
+    "income income expense expense expense category category"
+    "income income expense expense expense category category"
+    "converter converter expense expense expense category category"
+    "converter converter expense expense expense category category"
+    "converter converter expense expense expense category category";
+}
+
+//Header
+.headerContainer {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  box-shadow: 0 8px 8px -6px #52525270;
+
+  .imgSize {
+    width: 4vw;
+    margin-top: 10px;
+  }
+
+  select {
+    width: 5vw;
+    height: 30px;
+  }
+
+  .dateWrapper {
+    align-items: center;
+  }
+  h4 {
+    margin-right: 10px;
+  }
+}
+
+.containerBase {
+  background-color: $light-green;
+  border-radius: 25px;
+  padding: 10px 20px 20px 20px;
+  box-shadow: 0px 0px 5px #525252;
+}
+
+//Income
+
+.incomeContainer {
+  grid-area: income;
+  background-color: $green;
+  border-radius: 25px;
+  padding: 10px 20px 20px 20px;
+  box-shadow: 0px 0px 5px #525252;
+  display: grid;
+  grid-template-rows: 1fr 2fr 2fr 2fr 10fr;
+}
+
+//Overview
+.overviewContainer {
+  @extend .containerBase;
+  grid-area: overview;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+}
+
+.overviewWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 10px 11px;
+  grid-gap: 20px;
+}
+
+.charBase {
+  background-color: #fff;
+  box-shadow: 0px 0px 2px #888888;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.overviewItem {
+  @extend .charBase;
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  h3 {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+  }
+}
+.canvasOverviewContainer {
+  display: flex;
+  margin: auto;
+  width: 70%;
+  position: relative;
+}
+
+.centerData {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.chartNumber {
+  position: absolute;
+  text-align: center;
+  font-size: 1vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//Expense
+.expenseContainer {
+  @extend .containerBase;
+  grid-area: expense;
+  display: grid;
+  grid-template-rows: 1fr 2fr 2fr 2fr 10fr;
+
+  .modalButton {
+    display: none;
+  }
+}
+
+//Category
+.categoryContainer {
+  @extend .containerBase;
+  grid-area: category;
+}
+
+.categoryWrapper {
+  @extend .charBase;
+  margin: 12px 10px;
+
+  .chartNumber {
+    font-size: 1.8vw;
+  }
+}
+.checkContent {
+  margin: 0px 10px;
+}
+.checkWrapper {
+  margin: 10px 0px;
+
+  label {
+    font-size: 1vw;
+    margin-left: 3px;
+  }
+}
+
+.canvasCategoryContainer {
+  display: flex;
+  margin: auto;
+  width: 60%;
+}
+
+//Converter
+.converterContainer {
+  @extend .containerBase;
+  grid-area: converter;
+
+  .flex {
+    margin: 20px 75px;
+    justify-content: space-evenly;
+  }
+
+  input[type="number"] {
+    width: 9vw;
+    font-size: 1vw;
+  }
+  select {
+    width: 5vw;
+    font-size: 1vw;
+  }
+
+  .converterWrapper {
+    display: grid;
+    grid-template-areas: "a a";
+    justify-content: center;
+    margin-top: 4vh;
+    gap: 0.6vw;
+  }
+}
+
+//Modal
+.modalContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  margin-left: -20px;
+
+  .extraButtons {
+    display: none;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .removeDisplay {
+    display: none;
+  }
+}
+
+.modalWrapper {
+  @extend .containerBase;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  overflow: auto;
+}
+
+@mixin mediaConteinerBase {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+  grid-template-areas:
+    "header header header header header header"
+    "overview overview overview overview overview overview "
+    "overview overview overview overview overview overview"
+    "overview overview overview overview overview overview"
+    "income income income income category category"
+    "income income income income category category"
+    "income income income income category category"
+    "income income income income category category"
+    "expense expense expense expense category category"
+    "expense expense expense expense category category"
+    "expense expense expense expense converter converter"
+    "expense expense expense expense converter converter";
+}
+
+@mixin smallContainerBase {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(26, minmax(0, 1fr));
+  grid-template-areas:
+    "header"
+    "overview"
+    "overview"
+    "overview"
+    "income"
+    "income"
+    "income"
+    "income"
+    "income"
+    "expense"
+    "expense"
+    "expense"
+    "expense"
+    "expense"
+    "category"
+    "category"
+    "category"
+    "category"
+    "category"
+    "category"
+    "category"
+    "category"
+    "category"
+    "converter"
+    "converter"
+    "converter";
+}
+
+@media only screen and (min-width: 1440px) and (max-height: 680px) {
+  .contentWrapper {
+    height: 140vh;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) and (max-height: 570px) {
+  .contentWrapper {
+    @include mediaConteinerBase;
+    height: 260vh;
+  }
+  .canvasOverviewContainer {
+    width: 65%;
+  }
+  .headerContainer {
+    .imgSize {
+      width: 9vw;
+    }
+    select {
+      width: 10vw;
+      height: 25px;
+    }
+    .dateWrapper {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    h4 {
+      margin-right: 0px;
+      margin-bottom: 3px;
+    }
+  }
+  .chartNumber {
+    font-size: 2vw;
+  }
+  .categoryWrapper {
+    margin: 12px 5px;
+  }
+  .checkContent {
+    margin: 0px 5px;
+  }
+  .checkWrapper {
+    label {
+      font-size: 1.5vw;
+    }
+  }
+  .converterContainer {
+    input[type="number"] {
+      width: 10vw;
+      font-size: 1.6vw;
+    }
+    select {
+      width: 8vw;
+      font-size: 1.6vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .headerContainer {
+    .imgSize {
+      width: 8vw;
+    }
+    select {
+      width: 10vw;
+      height: 25px;
+    }
+    .dateWrapper {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    h4 {
+      margin-right: 0px;
+      margin-bottom: 3px;
+    }
+  }
+  .contentWrapper {
+    @include mediaConteinerBase;
+    height: 200vh;
+  }
+  .chartNumber {
+    font-size: 2vw;
+  }
+  .categoryWrapper {
+    margin: 12px 5px;
+  }
+  .checkContent {
+    margin: 0px 5px;
+  }
+  .checkWrapper {
+    label {
+      font-size: 1.5vw;
+    }
+  }
+  .converterContainer {
+    input[type="number"] {
+      width: 10vw;
+      font-size: 1.6vw;
+    }
+    select {
+      width: 8vw;
+      font-size: 1.6vw;
+    }
+  }
+}
+@media only screen and (max-width: 768px) and (max-height: 535px) {
+  .contentWrapper {
+    height: 260vh;
+  }
+  .canvasOverviewContainer {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .headerContainer {
+    select {
+      width: 8vw;
+      height: 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .categoryWrapper {
+    @extend .charBase;
+    margin: 12px 3px;
+  }
+  .checkContent {
+    margin: 0px;
+  }
+
+  .canvasCategoryContainer {
+    display: flex;
+    margin: auto;
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 500px) and (max-height: 540px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 350vh;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 540px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 300vh;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 635px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 280vh;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 700px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 255vh;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 760px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 235vh;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-height: 800px) {
+  .contentWrapper {
+    @include smallContainerBase;
+    height: 200vh;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .headerContainer {
+    .imgSize {
+      width: 10vw;
+    }
+    select {
+      width: 12vw;
+      height: 19px;
+      font-size: 2vw;
+    }
+    h4 {
+      margin-bottom: 4px;
+    }
+  }
+  .canvasOverviewContainer {
+    width: 90%;
+  }
+
+  .chartNumber {
+    font-size: 2.5vw;
+  }
+
+  .checkWrapper {
+    label {
+      font-size: 2.5vw;
+    }
+  }
+  .converterContainer {
+    input[type="number"] {
+      width: 22vw;
+      font-size: 2vw;
+    }
+    select {
+      width: 15vw;
+      font-size: 2vw;
+    }
+  }
+  .categoryWrapper {
+    .chartNumber {
+      font-size: 3.8vw;
+    }
+  }
+}

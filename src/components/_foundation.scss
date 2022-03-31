@@ -1,0 +1,104 @@
+$font: "Montserrat", sans-serif;
+$bg-color: #1b7f7a;
+$green: #4caba6;
+$light-green: #eefffe;
+$details-color: #f2cdac;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $light-green;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $bg-color;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #747474;
+  }
+}
+
+body {
+  background-color: $bg-color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+h1 {
+  font-size: 1.8vw;
+}
+h2 {
+  font-size: 1.4vw;
+  text-align: center;
+}
+h3 {
+  font-size: 1.1vw;
+  margin: 20px 0px 10px 0px;
+}
+h4 {
+  font-size: 0.8vw;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) and (max-height: 570px) {
+  h1 {
+    font-size: 2.6vw;
+    margin-left: 40px;
+  }
+  h2 {
+    font-size: 2vw;
+  }
+  h3 {
+    font-size: 1.5vw;
+  }
+  h4 {
+    font-size: 1.4vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.6vw;
+    margin-left: 40px;
+  }
+  h2 {
+    font-size: 2vw;
+  }
+  h3 {
+    font-size: 1.5vw;
+  }
+  h4 {
+    font-size: 1.4vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 3vw;
+    margin-left: 13px;
+  }
+  h2 {
+    font-size: 2.8vw;
+  }
+  h3 {
+    font-size: 2.3vw;
+  }
+  h4 {
+    font-size: 1.8vw;
+  }
+}
