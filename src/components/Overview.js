@@ -34,9 +34,6 @@ const Overview = (props) => {
   if (totalBudget < 0) {
     totalBudget = 0;
   }
-  // else if (totalExpense === 0) {
-  //   totalBudget = totalIncome;
-  // }
   const budgetArray = [totalExpense, totalBudget];
 
   useEffect(() => {
