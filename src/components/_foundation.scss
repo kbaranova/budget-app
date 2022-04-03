@@ -102,3 +102,33 @@ h4 {
     font-size: 1.8vw;
   }
 }
+
+@media only screen and (min-width: 2000px) {
+  h1 {
+    font-size: 1.3vw;
+  }
+  h2 {
+    font-size: 1vw;
+  }
+  h3 {
+    font-size: 0.8vw;
+  }
+  h4 {
+    font-size: 0.6vw;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  h1 {
+    font-size: 1.1vw;
+  }
+  h2 {
+    font-size: 0.8vw;
+  }
+  h3 {
+    font-size: 0.7vw;
+  }
+  h4 {
+    font-size: 0.5vw;
+  }
+}

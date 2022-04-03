@@ -504,3 +504,88 @@
     }
   }
 }
+@media only screen and (min-width: 2000px) and (max-height: 815px) {
+  .canvasOverviewContainer {
+    width: 58%;
+  }
+  .canvasCategoryContainer {
+    width: 52%;
+  }
+  .headerContainer {
+    select {
+      width: 8vw;
+    }
+  }
+  .chartNumber {
+    font-size: 0.8vw;
+  }
+  .checkWrapper {
+    label {
+      font-size: 0.7vw;
+    }
+  }
+  .converterContainer {
+    input[type="number"] {
+      width: 8vw;
+      font-size: 0.8vw;
+    }
+    select {
+      width: 6vw;
+      font-size: 0.8vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 2500px) and (max-height: 980px) {
+  .headerContainer {
+    .imgSize {
+      width: 3vw;
+    }
+  }
+  .canvasOverviewContainer {
+    width: 58%;
+  }
+  .canvasCategoryContainer {
+    width: 50%;
+  }
+  .headerContainer {
+    select {
+      width: 8vw;
+    }
+  }
+  .chartNumber {
+    font-size: 0.7vw;
+  }
+  .categoryWrapper {
+    .chartNumber {
+      font-size: 1vw;
+    }
+  }
+  .checkWrapper {
+    label {
+      font-size: 0.6vw;
+    }
+  }
+  .converterContainer {
+    input[type="number"] {
+      font-size: 0.5vw;
+    }
+    select {
+      font-size: 0.5vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 2500px) and (max-height: 854px) {
+  .canvasOverviewContainer {
+    width: 50%;
+  }
+  .canvasCategoryContainer {
+    width: 45%;
+  }
+  .headerContainer {
+    select {
+      width: 6vw;
+    }
+  }
+}

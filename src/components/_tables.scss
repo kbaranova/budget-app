@@ -172,3 +172,65 @@
     }
   }
 }
+
+@media only screen and (min-width: 2000px) {
+  .tableIncomeWrapper {
+    .tableLabel {
+      font-size: 0.7vw;
+    }
+    .tableValue {
+      font-size: 0.8vw;
+    }
+  }
+  .tableExpenseWrapper {
+    .tableLabel {
+      font-size: 0.7vw;
+    }
+
+    .tableNumber {
+      font-size: 0.8vw;
+    }
+
+    .tableDate {
+      font-size: 0.6vw;
+    }
+
+    .tableCategory {
+      font-size: 0.7vw;
+    }
+    thead {
+      font-size: 0.6vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .tableIncomeWrapper {
+    .tableLabel {
+      font-size: 0.6vw;
+    }
+    .tableValue {
+      font-size: 0.7vw;
+    }
+  }
+  .tableExpenseWrapper {
+    .tableLabel {
+      font-size: 0.6vw;
+    }
+
+    .tableNumber {
+      font-size: 0.7vw;
+    }
+
+    .tableDate {
+      font-size: 0.5vw;
+    }
+
+    .tableCategory {
+      font-size: 0.5vw;
+    }
+    thead {
+      font-size: 0.5vw;
+    }
+  }
+}

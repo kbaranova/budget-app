@@ -279,3 +279,46 @@ input[type="checkbox"] {
     }
   }
 }
+@media only screen and (min-width: 2000px) {
+  button {
+    font-size: 1vw;
+  }
+  .inputContainer {
+    input::placeholder {
+      font-size: 12px;
+    }
+    select {
+      font-size: 12px;
+    }
+
+    input[type="date"] {
+      font-size: 12px;
+    }
+
+    label {
+      font-size: 0.6vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  button {
+    font-size: 0.8vw;
+  }
+  .inputContainer {
+    input::placeholder {
+      font-size: 12px;
+    }
+    select {
+      font-size: 12px;
+    }
+
+    input[type="date"] {
+      font-size: 12px;
+    }
+
+    label {
+      font-size: 0.5vw;
+    }
+  }
+}
